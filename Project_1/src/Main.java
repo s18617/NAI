@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 /**
  * @author Adam Woytowicz s18617
+ * @version 1.0
  */
 public class Main {
     public static void main(String[] args) {
@@ -34,11 +35,11 @@ public class Main {
         File testSetFile = new File(testSetPath);
 
         if (!trainSetFile.isFile()) {
-            System.err.println("Train set does not exist or is not a file.");
+            System.err.println("> Train set does not exist or is not a file.");
             System.exit(1);
         }
         if (!testSetFile.isFile()) {
-            System.err.println("Test set does not exist or is not a file.");
+            System.err.println("> Test set does not exist or is not a file.");
             System.exit(1);
         }
 
@@ -57,7 +58,7 @@ public class Main {
                 line = testSetReader.readLine();
             }
         } catch (IOException ex) {
-            System.err.println("An error occured while reading files.");
+            System.err.println("> An error occured while reading files.");
             ex.printStackTrace();
             System.exit(1);
         }
@@ -83,5 +84,7 @@ public class Main {
         }
 
         ClassifierKNN classifier = new ClassifierKNN(k, trainingObservations, testingObservations);
+        classifier.classifyTestingSet();
+        classifier.classifyLoop();
     }
 }
