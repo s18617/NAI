@@ -1,3 +1,5 @@
+package kNN;
+
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -27,7 +29,7 @@ public class ClassifierKNN {
             ArrayList<Double> dimensions = new ArrayList<>();
             try {
                 for (String s : split) {
-                    dimensions.add(Double.parseDouble(s));
+                    dimensions.add(Double.parseDouble(s.trim()));
                 }
                 try {
                     System.out.println(classify(new Observation(dimensions)));

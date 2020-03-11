@@ -1,3 +1,5 @@
+package kNN;
+
 public class Distance {
     private String classification;
     private double distance;

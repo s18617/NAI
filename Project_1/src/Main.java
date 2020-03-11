@@ -1,3 +1,6 @@
+import kNN.ClassifierKNN;
+import kNN.Observation;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
