@@ -6,29 +6,32 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @author Adam Woytowicz s18617
+ */
 public class Main {
     public static void main(String[] args) {
-        int k;  // hiperparametr k-NN
-        String trainSet = null;
-        String testSet = null;
+        int k = 3;  // hiperparametr k-NN (k najbliższych obserwacji do porównania) z domyślną wartością 3
+        String trainSetPath = null;
+        String testSetPath = null;
 
         if (args.length == 3) {
             k = Integer.parseInt(args[0]);
-            trainSet = args[1];
-            testSet = args[2];
+            trainSetPath = args[1];
+            testSetPath = args[2];
         } else {
             try (Scanner sc = new Scanner(System.in)) {
                 k = sc.nextInt();
-                trainSet = sc.nextLine();
-                testSet = sc.nextLine();
+                trainSetPath = sc.nextLine();
+                testSetPath = sc.nextLine();
             } catch (Exception ex) {
                 ex.printStackTrace();
                 System.exit(1);
             }
         }
 
-        File trainSetFile = new File(trainSet);
-        File testSetFile = new File(testSet);
+        File trainSetFile = new File(trainSetPath);
+        File testSetFile = new File(testSetPath);
 
         if (!trainSetFile.isFile()) {
             System.err.println("Train set does not exist or is not a file.");
@@ -39,8 +42,8 @@ public class Main {
             System.exit(1);
         }
 
-        List<String[]> trainSetLines = new ArrayList<>();
-        List<String[]> testSetLines = new ArrayList<>();
+        List<String[]> trainSetLines = new ArrayList<>();  // (x1, x2, ..., xn, result)
+        List<String[]> testSetLines = new ArrayList<>();  // (x1, x2, ..., xn)
         try (BufferedReader trainSetReader = new BufferedReader(new FileReader(trainSetFile));
              BufferedReader testSetReader = new BufferedReader(new FileReader(testSetFile))) {
             String line = trainSetReader.readLine();
@@ -59,6 +62,26 @@ public class Main {
             System.exit(1);
         }
 
-        // TODO do something with the fucking data
+        // Training set
+        List<Observation> trainingObservations = new ArrayList<>();
+        for (String[] line : trainSetLines) {
+            ArrayList<Double> dimensions = new ArrayList<>();
+            for (int i = 0; i < line.length - 1; i++) {
+                dimensions.add(Double.parseDouble(line[i]));
+            }
+            trainingObservations.add(new Observation(line[line.length - 1], dimensions));
+        }
+
+        // Testing set
+        List<Observation> testingObservations = new ArrayList<>();
+        for (String[] line : testSetLines) {
+            ArrayList<Double> dimensions = new ArrayList<>();
+            for (int i = 0; i < line.length; i++) {
+                dimensions.add(Double.parseDouble(line[i]));
+            }
+            testingObservations.add(new Observation(dimensions));
+        }
+
+        ClassifierKNN classifier = new ClassifierKNN(k, trainingObservations, testingObservations);
     }
 }
