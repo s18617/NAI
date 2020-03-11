@@ -25,13 +25,17 @@ public class ClassifierKNN {
         while (!input.equals("q")) {
             String[] split = input.split(",");
             ArrayList<Double> dimensions = new ArrayList<>();
-            for (String s : split) {
-                dimensions.add(Double.parseDouble(s));
-            }
             try {
-                System.out.println(classify(new Observation(dimensions)));
-            } catch (Exception ex) {
-                System.err.println("> Error occured while classifying.");
+                for (String s : split) {
+                    dimensions.add(Double.parseDouble(s));
+                }
+                try {
+                    System.out.println(classify(new Observation(dimensions)));
+                } catch (Exception ex) {
+                    System.err.println("> Error occured while classifying.");
+                }
+            } catch (NumberFormatException ex) {
+                System.err.println("> Error occured while converting input.");
             }
 
             System.out.println("> Input new dimensions:");
