@@ -11,12 +11,20 @@ public class ClassifierKNN {
     private List<Observation> trainingObservations;
     private List<Observation> testingObservations;
 
+    /**
+     * @param k                    number of nearest neighbours to take into consideration in classification
+     * @param trainingObservations list of training observations
+     * @param testingObservations  list of testing observations
+     */
     public ClassifierKNN(int k, List<Observation> trainingObservations, List<Observation> testingObservations) {
         this.k = k;
         this.trainingObservations = trainingObservations;
         this.testingObservations = testingObservations;
     }
 
+    /**
+     * Enteres a loop, where user can classify his single observation
+     */
     public void classifyLoop() {
         Scanner sc = new Scanner(System.in);
 
@@ -45,6 +53,9 @@ public class ClassifierKNN {
         }
     }
 
+    /**
+     * Enters a loop, where user can choose to classify list of testing observations with different k
+     */
     public void classifyTestingSetLoop() {
         final int K_BACKUP = this.k;
 
@@ -72,6 +83,9 @@ public class ClassifierKNN {
         this.k = K_BACKUP;
     }
 
+    /**
+     * Classifies list of testing observations
+     */
     public void classifyTestingSet() {
         int counter = 0;
 
@@ -91,6 +105,12 @@ public class ClassifierKNN {
         System.out.println("> Testing set classified.");
     }
 
+    /**
+     * Classifies single observation
+     *
+     * @param o observation to classify
+     * @return classification name
+     */
     public String classify(Observation o) {
         ArrayList<Distance> distances = new ArrayList<>();
         for (Observation tO : trainingObservations) {

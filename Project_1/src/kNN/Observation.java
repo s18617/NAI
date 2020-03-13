@@ -15,20 +15,8 @@ public class Observation {
         this("", dimensions);
     }
 
-    public boolean isTraining() {
-        return classification.isEmpty();
-    }
-
     public String getClassification() {
         return classification;
-    }
-
-    public void setClassification(String classification) {
-        if (this.classification.isEmpty()) {
-            this.classification = classification;
-        } else {
-            System.out.println("This observation is already classified (" + this.classification + ")");
-        }
     }
 
     public ArrayList<Double> getDimensions() {
