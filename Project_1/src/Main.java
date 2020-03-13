@@ -46,19 +46,26 @@ public class Main {
             System.exit(1);
         }
 
-        List<String[]> trainSetLines = new ArrayList<>();  // (x1, x2, ..., xn, result)
-        List<String[]> testSetLines = new ArrayList<>();  // (x1, x2, ..., xn)
-        try (BufferedReader trainSetReader = new BufferedReader(new FileReader(trainSetFile));
-             BufferedReader testSetReader = new BufferedReader(new FileReader(testSetFile))) {
-            String line = trainSetReader.readLine();
+        // Loading
+        List<Observation> trainingObservations = new ArrayList<>();
+        loadSet(trainSetFile, trainingObservations);
+
+        List<Observation> testingObservations = new ArrayList<>();
+        loadSet(testSetFile, testingObservations);
+
+
+        ClassifierKNN classifier = new ClassifierKNN(k, trainingObservations, testingObservations);
+        classifier.classifyTestingSetLoop();
+        classifier.classifyLoop();
+    }
+
+    private static void loadSet(File setFile, List<Observation> observations) {
+        List<String[]> setLines = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(setFile))) {
+            String line = br.readLine();
             while (line != null) {
-                trainSetLines.add(line.split(","));
-                line = trainSetReader.readLine();
-            }
-            line = testSetReader.readLine();
-            while (line != null) {
-                testSetLines.add(line.split(","));
-                line = testSetReader.readLine();
+                setLines.add(line.split(","));
+                line = br.readLine();
             }
         } catch (IOException ex) {
             System.err.println("> An error occured while reading files.");
@@ -66,28 +73,12 @@ public class Main {
             System.exit(1);
         }
 
-        // Training set
-        List<Observation> trainingObservations = new ArrayList<>();
-        for (String[] line : trainSetLines) {
+        for (String[] line : setLines) {
             ArrayList<Double> dimensions = new ArrayList<>();
             for (int i = 0; i < line.length - 1; i++) {
                 dimensions.add(Double.parseDouble(line[i]));
             }
-            trainingObservations.add(new Observation(line[line.length - 1], dimensions));
+            observations.add(new Observation(line[line.length - 1], dimensions));
         }
-
-        // Testing set
-        List<Observation> testingObservations = new ArrayList<>();
-        for (String[] line : testSetLines) {
-            ArrayList<Double> dimensions = new ArrayList<>();
-            for (int i = 0; i < line.length; i++) {
-                dimensions.add(Double.parseDouble(line[i]));
-            }
-            testingObservations.add(new Observation(dimensions));
-        }
-
-        ClassifierKNN classifier = new ClassifierKNN(k, trainingObservations, testingObservations);
-        classifier.classifyTestingSet();
-        classifier.classifyLoop();
     }
 }

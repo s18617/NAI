@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e7f7c3c-059c-458f-97f7-0f0c5345bc34" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClassifierKNN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kNN/ClassifierKNN.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Distance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kNN/Distance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Observation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kNN/Observation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kNN/ClassifierKNN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kNN/ClassifierKNN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_set.data" beforeDir="false" afterPath="$PROJECT_DIR$/test_set.data" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +35,11 @@
   </component>
   <component name="ProjectId" id="1Ywt4R6Xqz6aNpwS0PmEOAakFyC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -52,17 +54,10 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Adam\Documents\_PJATK\Sem. 4\NAI\NAI\Project_1" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -91,7 +86,9 @@
       <updated>1583865292799</updated>
       <workItem from="1583865295573" duration="2556000" />
       <workItem from="1583911956686" duration="17488000" />
-      <workItem from="1583952845889" duration="70000" />
+      <workItem from="1583952845889" duration="809000" />
+      <workItem from="1584062423985" duration="142000" />
+      <workItem from="1584062778293" duration="2543000" />
     </task>
     <servers />
   </component>
@@ -124,5 +121,35 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1584065309378">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1584065309378" />
+    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1584065309378">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1584065309378" />
+    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1584065309378">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1584065309378" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1584065309378">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1584065309378" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1584062823407">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1050@0.0.1920.1050" timestamp="1584062823407" />
+    <state x="656" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1584062808434">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="656" y="348" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1584062808434" />
+    <state x="690" y="290" key="extract.method.dialog" timestamp="1584063319367">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="690" y="290" key="extract.method.dialog/0.0.1920.1050@0.0.1920.1050" timestamp="1584063319367" />
   </component>
 </project>

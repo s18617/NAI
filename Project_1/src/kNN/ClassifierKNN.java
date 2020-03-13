@@ -45,12 +45,49 @@ public class ClassifierKNN {
         }
     }
 
+    public void classifyTestingSetLoop() {
+        final int K_BACKUP = this.k;
+
+        classifyTestingSet();
+        System.out.println("> Do you want to test the testing set for different k? (y/n): ");
+        Scanner sc = new Scanner(System.in);
+        String choice = sc.nextLine();
+
+        if (choice.equals("y")) {
+            System.out.println("> Entered k loop, enter 'q' to quit.");
+            System.out.println("> Input new k:");
+            String input = sc.nextLine();
+            while (!input.equals("q")) {
+                try {
+                    this.k = Integer.parseInt(input);
+                    classifyTestingSet();
+                } catch (NumberFormatException ex) {
+                    System.err.println("> Error occured while converting input.");
+                }
+                System.out.println("> Input new k:");
+                input = sc.nextLine();
+            }
+        }
+
+        this.k = K_BACKUP;
+    }
+
     public void classifyTestingSet() {
+        int counter = 0;
+
         System.out.println("> Classifying testing set...");
         for (Observation o : testingObservations) {
-            System.out.print(o.getDimensions() + "=");
-            System.out.println(classify(o));
+            String c = classify(o);  // saved to not classify two times
+            System.out.println(o.getDimensions() + "=" + c + " [Correct: " + o.getClassification() + "]");
+            if (c.equals(o.getClassification())) {
+                counter++;
+            }
         }
+
+        double accuracy = (counter * 1.0 - 2) / testingObservations.size();
+        System.out.println("> Overall classification accuracy for k=" + k + " is "
+                + Math.round(accuracy * 10000.00) / 10000.00);
+
         System.out.println("> Testing set classified.");
     }
 
