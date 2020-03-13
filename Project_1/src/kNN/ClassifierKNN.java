@@ -57,7 +57,7 @@ public class ClassifierKNN {
      * Enters a loop, where user can choose to classify list of testing observations with different k
      */
     public void classifyTestingSetLoop() {
-        final int K_BACKUP = this.k;
+        final int K_BACKUP = getK();
 
         classifyTestingSet();
         System.out.println("> Do you want to test the testing set for different k? (y/n): ");
@@ -70,7 +70,7 @@ public class ClassifierKNN {
             String input = sc.nextLine();
             while (!input.equals("q")) {
                 try {
-                    this.k = Integer.parseInt(input);
+                    setK(Integer.parseInt(input));
                     classifyTestingSet();
                 } catch (NumberFormatException ex) {
                     System.err.println("> Error occured while converting input.");
@@ -80,7 +80,7 @@ public class ClassifierKNN {
             }
         }
 
-        this.k = K_BACKUP;
+        setK(K_BACKUP);
     }
 
     /**

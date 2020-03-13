@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5e7f7c3c-059c-458f-97f7-0f0c5345bc34" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kNN/ClassifierKNN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kNN/ClassifierKNN.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +90,7 @@
       <workItem from="1584062423985" duration="142000" />
       <workItem from="1584062778293" duration="3053000" />
       <workItem from="1584142589503" duration="116000" />
-      <workItem from="1584142719417" duration="619000" />
+      <workItem from="1584142719417" duration="846000" />
     </task>
     <servers />
   </component>
