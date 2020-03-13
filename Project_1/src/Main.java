@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
-        int k = 3;  // hiperparametr k-NN (k najbliższych obserwacji do porównania) z domyślną wartością 3
+        int k = 0;  // hiperparametr k-NN (k najbliższych obserwacji do porównania)
         String trainSetPath = null;
         String testSetPath = null;
 
