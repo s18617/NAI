@@ -84,7 +84,7 @@ public class ClassifierKNN {
             }
         }
 
-        double accuracy = (counter * 1.0 - 2) / testingObservations.size();
+        double accuracy = (counter * 1.0) / testingObservations.size();
         System.out.println("> Overall classification accuracy for k=" + k + " is "
                 + Math.round(accuracy * 10000.00) / 10000.00);
 
