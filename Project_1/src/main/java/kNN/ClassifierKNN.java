@@ -1,5 +1,13 @@
 package kNN;
 
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtils;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -62,6 +70,7 @@ public class ClassifierKNN {
         final int K_BACKUP = getK();
 
         classifyTestingSet();
+        chartUserQuestion();
         System.out.println("> Do you want to test the testing set for different k? (y/n): ");
         Scanner sc = new Scanner(System.in);
         String choice = sc.nextLine();
@@ -84,6 +93,8 @@ public class ClassifierKNN {
                 System.out.println("> Input new k:");
                 input = sc.nextLine();
             }
+        } else {
+            System.out.println("> Ignored k loop.");
         }
 
         setK(K_BACKUP);
@@ -92,7 +103,7 @@ public class ClassifierKNN {
     /**
      * Classifies list of testing observations
      */
-    public void classifyTestingSet() {
+    public double classifyTestingSet() {
         int counter = 0;
 
         System.out.println("> Classifying testing set...");
@@ -109,6 +120,8 @@ public class ClassifierKNN {
                 + Math.round(accuracy * 10000.00) / 10000.00);
 
         System.out.println("> Testing set classified.");
+
+        return accuracy;
     }
 
     /**
@@ -192,6 +205,58 @@ public class ClassifierKNN {
             this.k = k;
         } else {
             throw new IllegalArgumentException("> K cannot be less than 1.");
+        }
+    }
+
+    /**
+     * Method creating JPEG image of an accuracy chart
+     * Made using JFreeChart http://www.jfree.org/jfreechart/
+     * Made with help of tutorialspoint.com https://www.tutorialspoint.com/jfreechart/jfreechart_line_chart.htm
+     */
+    public void generateChart(String path, int width, int height) {
+        final int size = testingObservations.size();
+        DefaultCategoryDataset lineChartDataset = new DefaultCategoryDataset();
+
+        for (int i = 1; i <= 10; i++) {
+            final int K_BACKUP = getK();
+            setK(i);
+            double acc = classifyTestingSet();
+            lineChartDataset.addValue(acc, "accuracy", Integer.toString(i));
+            setK(K_BACKUP);
+        }
+
+        JFreeChart lineChartObject = ChartFactory.createLineChart(
+                "Accuracy", "k", "accuracy",
+                lineChartDataset, PlotOrientation.VERTICAL,
+                false, false, false
+        );
+
+        File lineChart = new File(path);
+        try {
+            ChartUtils.saveChartAsJPEG(lineChart, lineChartObject, width, height);
+        } catch (IOException ex) {
+            System.err.println("> Error occured while saving a chart.");
+        }
+    }
+
+    public void chartUserQuestion() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("> Do you want to generate JPEG accuracy chart? (y/n):");
+        String answer = sc.nextLine();
+
+        if (answer.equals("y")) {
+            try {
+                System.out.println("> Enter path (chart.jpg):");
+                String path = sc.nextLine();
+                System.out.println("> Enter width (640):");
+                int width = sc.nextInt();
+                System.out.println("> Enter height (480):");
+                int height = sc.nextInt();
+
+                generateChart(path, width, height);
+            } catch (NumberFormatException ex) {
+                System.err.println("> Error occured while processing arguments.");
+            }
         }
     }
 
