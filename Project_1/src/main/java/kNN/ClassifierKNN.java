@@ -217,7 +217,7 @@ public class ClassifierKNN {
         final int size = testingObservations.size();
         DefaultCategoryDataset lineChartDataset = new DefaultCategoryDataset();
 
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= size; i++) {
             final int K_BACKUP = getK();
             setK(i);
             double acc = classifyTestingSet();
@@ -248,9 +248,9 @@ public class ClassifierKNN {
             try {
                 System.out.println("> Enter path (chart.jpg):");
                 String path = sc.nextLine();
-                System.out.println("> Enter width (640):");
+                System.out.println("> Enter width (1920):");
                 int width = sc.nextInt();
-                System.out.println("> Enter height (480):");
+                System.out.println("> Enter height (1080):");
                 int height = sc.nextInt();
 
                 generateChart(path, width, height);
