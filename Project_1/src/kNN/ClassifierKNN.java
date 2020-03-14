@@ -70,10 +70,14 @@ public class ClassifierKNN {
             String input = sc.nextLine();
             while (!input.equals("q")) {
                 try {
-                    setK(Integer.parseInt(input));
-                    classifyTestingSet();
-                } catch (NumberFormatException ex) {
-                    System.err.println("> Error occured while converting input.");
+                    try {
+                        setK(Integer.parseInt(input));
+                        classifyTestingSet();
+                    } catch (NumberFormatException ex) {
+                        System.err.println("> Error occured while converting input.");
+                    }
+                } catch (IllegalArgumentException ex) {
+                    System.err.println(ex.getMessage());
                 }
                 System.out.println("> Input new k:");
                 input = sc.nextLine();
@@ -181,7 +185,7 @@ public class ClassifierKNN {
         if (k > 0) {
             this.k = k;
         } else {
-            System.err.println("> K cannot be less than 1.");
+            throw new IllegalArgumentException("> K cannot be less than 1.");
         }
     }
 
