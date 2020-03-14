@@ -24,6 +24,8 @@ public class Main {
             testSetPath = args[2];
         } else {
             try (Scanner sc = new Scanner(System.in)) {
+                System.err.println("> Missing program arguments. " +
+                        "Please enter the following: k, training set path, testing set path.");
                 k = sc.nextInt();
                 trainSetPath = sc.nextLine();
                 testSetPath = sc.nextLine();
