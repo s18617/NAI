@@ -181,6 +181,10 @@ public class ClassifierKNN {
         return k;
     }
 
+    /**
+     * @param k new k
+     * @throws IllegalArgumentException if new k is lower than 1
+     */
     public void setK(int k) {
         if (k > 0) {
             this.k = k;
