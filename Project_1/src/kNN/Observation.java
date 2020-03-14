@@ -2,6 +2,11 @@ package kNN;
 
 import java.util.ArrayList;
 
+/**
+ * Class representing an observation
+ *
+ * @author Adam Woytowicz s18617
+ */
 public class Observation {
     private String classification;
     private ArrayList<Double> dimensions;
