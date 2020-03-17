@@ -1,6 +1,6 @@
 package Perceptron;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Class representing an observation
@@ -26,5 +26,11 @@ public class Observation {
 
     public double[] getDimensions() {
         return dimensions;
+    }
+
+    @Override
+    public String toString() {
+        return "dimensions=" + Arrays.toString(dimensions)
+                + ", classification='" + classification + '\'';
     }
 }
