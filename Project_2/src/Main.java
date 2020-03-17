@@ -1,4 +1,5 @@
 import Perceptron.Observation;
+import Perceptron.Perceptron;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -47,6 +48,8 @@ public class Main {
         loadCsv(trainSetPath, trainSet);
         List<Observation> testSet = new ArrayList<>();
         loadCsv(testSetPath, testSet);
+
+        Perceptron perceptron = new Perceptron(alpha, trainSet, testSet);
     }
 
     private static void loadCsv(Path filepath, List<Observation> observations) {
