@@ -93,7 +93,7 @@ public class Perceptron {
 
         accuracy = accuracy / testObserv.size();
         System.out.println("> Accuracy = " + accuracy);
-        System.out.println("> " + Arrays.toString(w));
+        System.out.println("> w = " + Arrays.toString(w));
         System.out.println("> t = " + t);
     }
 }

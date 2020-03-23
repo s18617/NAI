@@ -50,6 +50,8 @@ public class Main {
         loadCsv(testSetPath, testSet);
 
         Perceptron perceptron = new Perceptron(alpha, trainSet, testSet);
+
+        classifyLoop(perceptron);
     }
 
     private static void loadCsv(Path filepath, List<Observation> observations) {
@@ -67,5 +69,38 @@ public class Main {
             ex.printStackTrace();
             System.exit(-1);
         }
+    }
+
+    private static void classifyLoop(Perceptron perceptron) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("> Entered classyfing loop, divide dimensions using coma ',', enter 'q' to quit.");
+        System.out.println("> Input dimensions:");
+        String input = sc.nextLine();
+
+        while (!input.equals("q")) {
+            String[] split = input.split(",");
+            double[] dimensions = new double[split.length];
+            try {
+                for (int i = 0; i < split.length; i++) {
+                    dimensions[i] = Double.parseDouble(split[i].trim());
+                }
+            } catch (NumberFormatException ex) {
+                System.err.println("> An error occured while converting input.");
+            }
+
+            try {
+                Observation o = new Observation(dimensions);
+                System.out.println("> Classification: " + perceptron.classify(o));
+            } catch (Exception ex) {
+                System.err.println("> En error occured while converting input.");
+                ex.printStackTrace();
+            }
+
+            System.out.println("> Input dimensions:");
+            input = sc.nextLine();
+        }
+
+        sc.close();
     }
 }
