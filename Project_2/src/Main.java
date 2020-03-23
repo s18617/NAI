@@ -18,7 +18,7 @@ public class Main {
         final Path trainSetPath;
         final Path testSetPath;
 
-        // Initializing constants
+        // initializing constants
         if (args.length == 3) {
             alpha = Float.parseFloat(args[0]);
             trainSetPath = Paths.get(args[1]);
@@ -33,7 +33,7 @@ public class Main {
             testSetPath = Paths.get(sc.nextLine());
         }
 
-        // Checking paths
+        // checking paths
         if (!Files.isRegularFile(trainSetPath)) {
             System.err.println("> Train set does not exist or is not a file.");
             System.exit(-1);
@@ -43,7 +43,7 @@ public class Main {
             System.exit(-1);
         }
 
-        // Loading files
+        // loading files
         List<Observation> trainSet = new ArrayList<>();
         loadCsv(trainSetPath, trainSet);
         List<Observation> testSet = new ArrayList<>();
