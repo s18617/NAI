@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Perceptron {
     // params
     private double alpha;
-    private double t = ThreadLocalRandom.current().nextDouble(0, 1 + 1); // theta
+    private double t = 50; // theta
     private double[] w; // weights
 
     private String[] classes = new String[2];
@@ -26,7 +26,7 @@ public class Perceptron {
         this.testObserv = testObserv;
 
         w = new double[trainObserv.get(0).getDimensions().length];
-        Arrays.fill(w, 0);
+        Arrays.fill(w, -0.8);
 
         classes[0] = trainObserv.get(0).getClassification();
 
@@ -81,8 +81,19 @@ public class Perceptron {
     }
 
     private void test() {
+        double accuracy = 0;
+
         for (Observation o : testObserv) {
-            System.out.println(o + " : " + classify(o));
+            String classification = classify(o);
+            System.out.println(o + " : " + classification);
+            if (o.getClassification().equals(classification)) {
+                accuracy++;
+            }
         }
+
+        accuracy = accuracy / testObserv.size();
+        System.out.println("> Accuracy = " + accuracy);
+        System.out.println("> " + Arrays.toString(w));
+        System.out.println("> t = " + t);
     }
 }
