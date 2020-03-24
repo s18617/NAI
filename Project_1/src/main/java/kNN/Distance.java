@@ -2,8 +2,6 @@ package kNN;
 
 /**
  * Class storing distance between testing observation and training observation
- *
- * @author Adam Woytowicz s18617
  */
 public class Distance {
     private String classification;

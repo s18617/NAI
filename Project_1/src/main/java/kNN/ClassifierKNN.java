@@ -13,8 +13,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * k Nearest Neighbour classifier
- *
- * @author Adam Woytowicz s18617
  */
 public class ClassifierKNN {
     private int k;
