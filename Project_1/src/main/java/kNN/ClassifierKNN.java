@@ -147,12 +147,12 @@ public class ClassifierKNN {
 
 
         HashMap<String, Integer> count = new HashMap<>();
-        for (Observation observation : trainingObservations) {
-            count.put(observation.getClassification(), 0);
-        }
 
         for (int i = 0; i < k; i++) {
             String tmp = distances.get(i).getClassification();
+            if (!count.containsKey(tmp)) {
+                count.put(tmp, 0);
+            }
             count.put(tmp, count.get(tmp) + 1);
         }
 
