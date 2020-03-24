@@ -117,8 +117,6 @@ public class ClassifierKNN {
         System.out.println("> Overall classification accuracy for k=" + k + " is "
                 + Math.round(accuracy * 10000.00) / 10000.00);
 
-        System.out.println("> Testing set classified.");
-
         return accuracy;
     }
 
