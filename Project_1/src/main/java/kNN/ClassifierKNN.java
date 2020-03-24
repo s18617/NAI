@@ -141,6 +141,7 @@ public class ClassifierKNN {
             if (o1.getDistance() == o2.getDistance()) { // random if they're equal
                 return ThreadLocalRandom.current().nextInt(-1, 1 + 1);
             }
+            // if o1.getDistance() < o2.getDistance()
             return -1;
         });
 

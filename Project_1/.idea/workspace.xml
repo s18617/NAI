@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e7f7c3c-059c-458f-97f7-0f0c5345bc34" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projekt programistyczny 1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iris.data" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kNN/ClassifierKNN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kNN/ClassifierKNN.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -125,7 +122,7 @@
       <workItem from="1584984891679" duration="755000" />
       <workItem from="1585056750740" duration="843000" />
       <workItem from="1585057668091" duration="17000" />
-      <workItem from="1585057705488" duration="604000" />
+      <workItem from="1585057705488" duration="859000" />
     </task>
     <servers />
   </component>
