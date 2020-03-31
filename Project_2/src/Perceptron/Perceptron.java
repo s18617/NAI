@@ -2,7 +2,6 @@ package Perceptron;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author Adam Woytowicz s18617
