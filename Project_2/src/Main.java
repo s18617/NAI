@@ -74,7 +74,7 @@ public class Main {
     private static void classifyLoop(Perceptron perceptron) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("> Entered classyfing loop, divide dimensions using coma ',', enter 'q' to quit.");
+        System.out.println("> Entered classfying loop, divide dimensions using coma ',', enter 'q' to quit.");
         System.out.println("> Input dimensions:");
         String input = sc.nextLine();
 
