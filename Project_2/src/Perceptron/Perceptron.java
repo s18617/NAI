@@ -3,9 +3,6 @@ package Perceptron;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * @author Adam Woytowicz s18617
- */
 public class Perceptron {
     // params
     private double alpha;
