@@ -74,8 +74,10 @@ public class Perceptron {
     }
 
     private void train() {
-        for (Observation o : trainObserv) {
-            learn(o);
+        for (int i = 0; i < 10; i++) {
+            for (Observation o : trainObserv) {
+                learn(o);
+            }
         }
     }
 
