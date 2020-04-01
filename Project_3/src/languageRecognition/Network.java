@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Perceptron network using TODO global (reusing perceptrons) / local (unique perceptrons)
+ * Perceptron network using local architecture
  */
 public class Network {
     private double alpha;
@@ -20,13 +20,6 @@ public class Network {
         this.texts = texts;
 
         /*
-        globalnie:
-        "kod" dla kazdej klasy bedzie po kolei przydzielany jako liczby binare, np:
-        2 perceptrony
-        0. polish = 00 = [0, 0] = 0
-        1. english = 01 = [0, 1] = 1
-        2. italian = 10 = [1, 0] = 2
-
         lokalnie:
         3 perceptrony
         0. polish = [1, 0, 0]
