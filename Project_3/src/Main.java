@@ -1,6 +1,5 @@
 import languageRecognition.Network;
 import languageRecognition.Observation;
-import languageRecognition.Text;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -32,5 +31,6 @@ public class Main {
             System.out.println(o);
 
         Network network = new Network(alpha, texts);
+        network.learn(10);
     }
 }
