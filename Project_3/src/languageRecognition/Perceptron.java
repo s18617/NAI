@@ -24,17 +24,22 @@ public class Perceptron {
         return (tmp >= this.t) ? 1 : 0;
     }
 
+    public boolean isCorrectFor(Observation o) {
+        int y = calcNet(o);
+        return (y == 0 && o.getName().equals(name)) || (y == 1 && !o.getName().equals(name));
+    }
+
     /**
      * w[i] = w[i] + (d - y) * alpha * x[i]
      * y = 1 only when observation's name equals perceptron's name
      *
      * @param o observation to learn on
-     * @param d correct decision
      */
-    public void learn(Observation o, int d) {
+    public void learn(Observation o) {
         int y = calcNet(o); // real decision
+        int d = (o.getName().equals(name)) ? 1 : 0;
 
-        if (y == 0 && o.getName().equals(name) || y == 1 && !o.getName().equals(name)) {
+        if ((y == 0 && o.getName().equals(name)) || (y == 1 && !o.getName().equals(name))) {
             // w prim
             for (int i = 0; i < w.length; i++) {
                 w[i] = w[i] + (d - y) * alpha * o.getVector()[i];

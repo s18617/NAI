@@ -1,3 +1,4 @@
+import languageRecognition.Observation;
 import languageRecognition.Text;
 
 import java.io.IOException;
@@ -13,8 +14,8 @@ import java.util.stream.Stream;
 
 public final class TextLoader {
 
-    public static List<Text> getTextList(Path dirPath) {
-        List<Text> texts = new ArrayList<>();
+    public static List<Observation> getTextList(Path dirPath) {
+        List<Observation> texts = new ArrayList<>();
         // =====
 
         try (Stream<Path> pathStream = Files.walk(dirPath)) {

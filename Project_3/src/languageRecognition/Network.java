@@ -11,14 +11,14 @@ public class Network {
     private double alpha;
     private int K; // number of classes
 
-    private List<Text> texts;
+    private List<Observation> observations;
     private HashMap<String, int[]> languages;  // languages with codes (ex. "Polish":[0, 1, 0]])
     private Perceptron[] perceptrons; // sorted perceptrons
 
 
-    public Network(double alpha, List<Text> texts) {
+    public Network(double alpha, List<Observation> observations) {
         this.alpha = alpha;
-        this.texts = texts;
+        this.observations = observations;
 
         /*
         lokalnie:
@@ -30,9 +30,9 @@ public class Network {
 
         ArrayList<String> languagesTmp = new ArrayList<>();
 
-        for (Text text : texts) {
-            if (!languagesTmp.contains(text.getName())) {
-                languagesTmp.add(text.getName());
+        for (Observation o : observations) {
+            if (!languagesTmp.contains(o.getName())) {
+                languagesTmp.add(o.getName());
             }
         }
 
@@ -44,11 +44,17 @@ public class Network {
             int[] code = new int[K];
             code[i] = 1;
             languages.put(languagesTmp.get(i), code);
-            perceptrons[i] = new Perceptron(alpha, languagesTmp.get(i));
+            perceptrons[i] = new Perceptron(alpha, observations.get(0).getVector().length, languagesTmp.get(i));
         }
     }
 
     public void learn(int iterations) {
-
+        for (int i = 0; i < iterations; i++) {
+            for (Observation o : observations) {
+                for (Perceptron p : perceptrons) {
+                    p.learn(o);
+                }
+            }
+        }
     }
 }
