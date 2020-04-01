@@ -9,8 +9,9 @@ public class Perceptron {
 
     private String name; // language 'set' for this perceptron
 
-    public Perceptron(double alpha, String language) {
+    public Perceptron(double alpha, int paramsCount, String language) {
         this.alpha = alpha;
+        this.w = new double[paramsCount];
         this.name = language;
     }
 
