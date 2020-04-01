@@ -1,7 +1,6 @@
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import languageRecognition.Network;
 import languageRecognition.Text;
 
 public class GuiController {

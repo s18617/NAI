@@ -37,7 +37,7 @@ public class Main extends Application {
         Collections.shuffle(texts);
 
         network = new Network(alpha, texts);
-        network.learn(10);
+        network.learn(1000);
 
         launch(args);
     }
