@@ -7,21 +7,11 @@ public class Perceptron {
     private double t; // theta
     private double[] w; // weights
 
-    private String language; // language 'set' for this perceptron
+    private String name; // language 'set' for this perceptron
 
     public Perceptron(double alpha, String language) {
         this.alpha = alpha;
-        this.language = language;
-    }
-
-    @Override
-    public String toString() {
-        return "Perceptron{" +
-                "alpha=" + alpha +
-                ", t=" + t +
-                ", w=" + Arrays.toString(w) +
-                ", language='" + language + '\'' +
-                '}';
+        this.name = language;
     }
 
     public int calcNet(Observation o) {
@@ -35,6 +25,7 @@ public class Perceptron {
 
     /**
      * w[i] = w[i] + (d - y) * alpha * x[i]
+     * y = 1 only when observation's name equals perceptron's name
      *
      * @param o observation to learn on
      * @param d correct decision
@@ -42,12 +33,24 @@ public class Perceptron {
     public void learn(Observation o, int d) {
         int y = calcNet(o); // real decision
 
-        // w prim
-        for (int i = 0; i < w.length; i++) {
-            w[i] = w[i] + (d - y) * alpha * o.getVector()[i];
-        }
+        if (y == 0 && o.getName().equals(name) || y == 1 && !o.getName().equals(name)) {
+            // w prim
+            for (int i = 0; i < w.length; i++) {
+                w[i] = w[i] + (d - y) * alpha * o.getVector()[i];
+            }
 
-        // t prim
-        t = t + (d - y) * alpha * (-1);
+            // t prim
+            t = t + (d - y) * alpha * (-1);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Perceptron{" +
+                "alpha=" + alpha +
+                ", t=" + t +
+                ", w=" + Arrays.toString(w) +
+                ", language='" + name + '\'' +
+                '}';
     }
 }
