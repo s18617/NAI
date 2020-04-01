@@ -1,11 +1,53 @@
 package languageRecognition;
 
+import java.util.Arrays;
+
 public class Perceptron {
     private double alpha;
     private double t; // theta
     private double[] w; // weights
 
-    public Perceptron(double alpha) {
+    private String language; // language 'set' for this perceptron
+
+    public Perceptron(double alpha, String language) {
         this.alpha = alpha;
+        this.language = language;
+    }
+
+    @Override
+    public String toString() {
+        return "Perceptron{" +
+                "alpha=" + alpha +
+                ", t=" + t +
+                ", w=" + Arrays.toString(w) +
+                ", language='" + language + '\'' +
+                '}';
+    }
+
+    public int calcNet(Observation o) {
+        // net = x*w1 + y*w2 >= t
+        double tmp = 0.0;
+        for (int i = 0; i < o.getVector().length; i++) {
+            tmp += w[i] * o.getVector()[i];
+        }
+        return (tmp >= this.t) ? 1 : 0;
+    }
+
+    /**
+     * w[i] = w[i] + (d - y) * alpha * x[i]
+     *
+     * @param o observation to learn on
+     * @param d correct decision
+     */
+    public void learn(Observation o, int d) {
+        int y = calcNet(o); // real decision
+
+        // w prim
+        for (int i = 0; i < w.length; i++) {
+            w[i] = w[i] + (d - y) * alpha * o.getVector()[i];
+        }
+
+        // t prim
+        t = t + (d - y) * alpha * (-1);
     }
 }

@@ -3,7 +3,7 @@ package languageRecognition;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class Text {
+public class Text implements Observation {
     private String language;
     private double[] lettersRatio;
 
@@ -46,11 +46,11 @@ public class Text {
         return ratio;
     }
 
-    public String getLanguage() {
+    public String getName() {
         return language;
     }
 
-    public double[] getLettersRatio() {
+    public double[] getVector() {
         return lettersRatio;
     }
 
@@ -60,17 +60,6 @@ public class Text {
         BigDecimal bd = BigDecimal.valueOf(value);
         bd = bd.setScale(places, RoundingMode.HALF_UP);
         return bd.doubleValue();
-    }
-
-    private double[] roundArray(double[] array, int places) {
-        int length = array.length;
-        double[] rounded = new double[length];
-
-        for (int i = 0; i < length; i++) {
-            rounded[i] = roundDouble(array[i], places);
-        }
-
-        return rounded;
     }
 
     @Override
