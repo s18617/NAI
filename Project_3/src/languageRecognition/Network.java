@@ -1,6 +1,7 @@
 package languageRecognition;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -56,5 +57,18 @@ public class Network {
                 }
             }
         }
+    }
+
+    public String classify(Observation o) {
+        int[] code = new int[K];
+        for (int i = 0; i < K; i++) {
+            code[i] = perceptrons[i].calcNet(o);
+        }
+        for (String s : languages.keySet()) {
+            if (Arrays.equals(languages.get(s), code)) {
+                return s;
+            }
+        }
+        return "---";
     }
 }

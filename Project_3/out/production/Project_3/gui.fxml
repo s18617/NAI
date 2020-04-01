@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="GuiController"
+            stylesheets="@gui.css" styleClass="root"
+            prefHeight="400.0" prefWidth="600.0">
+    <padding>
+        <Insets top="5" bottom="5" left="5" right="5"/>
+    </padding>
+
+    <center>
+        <!-- CENTER -->
+        <TextArea fx:id="textArea" wrapText="true"/>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <padding>
+                <Insets top="5" bottom="5" left="5" right="5"/>
+            </padding>
+
+            <!-- BOTTOM -->
+            <Button onAction="#buttonAction" text="   Classify   "/>
+            <Label fx:id="label" text="Language: " style="-fx-font: 14px Helvetica"/>
+
+        </HBox>
+    </bottom>
+
+</BorderPane>

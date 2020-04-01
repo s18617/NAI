@@ -1,3 +1,8 @@
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import languageRecognition.Network;
 import languageRecognition.Observation;
 
@@ -7,7 +12,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class Main extends Application {
+    private static Network network;
+
     public static void main(String[] args) {
         // args
         final double alpha;
@@ -25,12 +32,25 @@ public class Main {
         }
 
         List<Observation> texts = TextLoader.getTextList(trainSetPath);
-        Collections.shuffle(texts);
-
         for (Observation o : texts)
             System.out.println(o);
+        Collections.shuffle(texts);
 
-        Network network = new Network(alpha, texts);
+        network = new Network(alpha, texts);
         network.learn(10);
+
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("gui.fxml"));
+        primaryStage.setTitle("Language Recognition");
+        primaryStage.setScene(new Scene(root, 800, 500));
+        primaryStage.show();
+    }
+
+    public static Network getNetwork() {
+        return network;
     }
 }
