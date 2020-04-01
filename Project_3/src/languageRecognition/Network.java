@@ -70,8 +70,7 @@ public class Network {
             }
         }
 
-        System.out.println(Arrays.toString(code));
         System.err.println("Wrong code " + Arrays.toString(code));
-        return Arrays.toString(code);
+        return "None " + Arrays.toString(code);
     }
 }

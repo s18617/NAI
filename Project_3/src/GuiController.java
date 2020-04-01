@@ -11,6 +11,6 @@ public class GuiController {
 
     @FXML
     private void buttonAction() {
-        label.setText(Main.getNetwork().classify(new Text("", textArea.getText())));
+        label.setText("Language: " + Main.getNetwork().classify(new Text("", textArea.getText())));
     }
 }
