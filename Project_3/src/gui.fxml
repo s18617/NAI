@@ -21,16 +21,26 @@
     </center>
 
     <bottom>
-        <HBox alignment="CENTER_LEFT" spacing="10">
+        <!-- BOTTOM -->
+        <BorderPane BorderPane.alignment="CENTER_LEFT">
             <padding>
                 <Insets top="5" bottom="5" left="5" right="5"/>
             </padding>
 
-            <!-- BOTTOM -->
-            <Button onAction="#buttonAction" text="   Classify   "/>
-            <Label fx:id="label" text="Language: " style="-fx-font: 14px Helvetica"/>
+            <left>
+                <HBox alignment="CENTER_LEFT" spacing="5">
+                    <Button onAction="#buttonAction" text="   Classify   "/>
+                    <Label fx:id="label" text="Language: " style="-fx-font: 14px Helvetica"/>
+                </HBox>
+            </left>
 
-        </HBox>
+            <right>
+                <HBox alignment="CENTER_RIGHT" spacing="5">
+                    <Button onAction="#chooseDir" text="  Choose language dir  " alignment="CENTER_RIGHT"/>
+                </HBox>
+            </right>
+
+        </BorderPane>
     </bottom>
 
 </BorderPane>

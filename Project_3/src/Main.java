@@ -14,6 +14,7 @@ import java.util.Scanner;
 
 public class Main extends Application {
     private static Network network;
+    private static Stage primaryStage;
 
     public static void main(String[] args) {
         // args
@@ -44,13 +45,18 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Main.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("gui.fxml"));
-        primaryStage.setTitle("Language Recognition");
-        primaryStage.setScene(new Scene(root, 800, 500));
-        primaryStage.show();
+        Main.primaryStage.setTitle("Language Recognition");
+        Main.primaryStage.setScene(new Scene(root, 800, 500));
+        Main.primaryStage.show();
     }
 
     public static Network getNetwork() {
         return network;
+    }
+
+    public static Stage getPrimaryStage() {
+        return primaryStage;
     }
 }
