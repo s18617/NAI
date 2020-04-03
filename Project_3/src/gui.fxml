@@ -28,9 +28,9 @@
             </padding>
 
             <left>
-                <HBox alignment="CENTER_LEFT" spacing="5">
+                <HBox alignment="CENTER_LEFT" spacing="10">
                     <Button onAction="#buttonAction" text="   Classify   "/>
-                    <Label fx:id="label" text="Language: " style="-fx-font: 14px Helvetica"/>
+                    <Label fx:id="label" text=" Language: " style="-fx-font: 14px Helvetica; -fx-background-color: #e3e3e3; -fx-background-radius: 3; -fx-background-insets: -5"/>
                 </HBox>
             </left>
 

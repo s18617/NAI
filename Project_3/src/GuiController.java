@@ -28,7 +28,7 @@ public class GuiController {
         if (network == null) {
             network = Main.getNetwork();
         }
-        label.setText("Language: " + network.classify(new Text("", textArea.getText())));
+        label.setText(" Language: " + network.classify(new Text("", textArea.getText())));
     }
 
     @FXML
