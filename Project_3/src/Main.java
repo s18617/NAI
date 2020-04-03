@@ -48,7 +48,7 @@ public class Main extends Application {
         Main.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("gui.fxml"));
         Main.primaryStage.setTitle("Language Recognition");
-        Main.primaryStage.setScene(new Scene(root, 800, 500));
+        Main.primaryStage.setScene(new Scene(root, 800, 350));
         Main.primaryStage.show();
     }
 
