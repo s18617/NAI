@@ -24,11 +24,6 @@ public class Perceptron {
         return (tmp >= this.t) ? 1 : 0;
     }
 
-    public boolean isCorrectFor(Observation o) {
-        int y = calcNet(o);
-        return (y == 0 && o.getName().equals(name)) || (y == 1 && !o.getName().equals(name));
-    }
-
     /**
      * w[i] = w[i] + (d - y) * alpha * x[i]
      * y = 1 only when observation's name equals perceptron's name
