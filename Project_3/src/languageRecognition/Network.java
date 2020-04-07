@@ -21,14 +21,6 @@ public class Network {
         this.alpha = alpha;
         this.observations = observations;
 
-        /*
-        lokalnie:
-        3 perceptrony
-        0. polish = [1, 0, 0]
-        1. english = [0, 1, 0]
-        2. italian = [0, 0, 1]
-         */
-
         ArrayList<String> languagesTmp = new ArrayList<>();
 
         for (Observation o : observations) {
