@@ -7,7 +7,7 @@ public class Perceptron {
     private double t; // theta
     private double[] w; // weights
 
-    private String name; // language 'set' for this perceptron
+    private String name; // classification 'set' for this perceptron
 
     public Perceptron(double alpha, int paramsCount, String language) {
         this.alpha = alpha;
