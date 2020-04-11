@@ -9,9 +9,9 @@ public class Perceptron {
 
     private String name; // classification 'set' for this perceptron
 
-    public Perceptron(double alpha, int paramsCount, String language) {
+    public Perceptron(double alpha, int dimensions, String language) {
         this.alpha = alpha;
-        this.w = new double[paramsCount];
+        this.w = new double[dimensions];
         this.name = language;
     }
 
