@@ -25,7 +25,7 @@ public class Perceptron {
     }
 
     /**
-     * w[i] = w[i] + (d - y) * alpha * x[i]
+     * w[i] = w[i] + (d - y) * alpha * x[i]<br>
      * y = 1 only when observation's name equals perceptron's name
      *
      * @param o observation to learn on
