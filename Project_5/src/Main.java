@@ -1,3 +1,4 @@
+import k_means.KMeans;
 import k_means.Vector;
 
 import java.io.BufferedReader;
@@ -30,6 +31,15 @@ public class Main {
         }
 
         List<Vector> vectors = loadFromCsv(datasetPath);
+
+        KMeans kMeans = new KMeans(vectors);
+        ArrayList<ArrayList<Vector>> groups = kMeans.group(k);
+        for (int i = 0; i < groups.size(); i++) {
+            System.out.println("===== GROUP " + i + " ===== SIZE=" + groups.get(i).size());
+            for (Vector v : groups.get(i)) {
+                System.out.println(v);
+            }
+        }
     }
 
     private static List<Vector> loadFromCsv(String filepath) {
