@@ -10,16 +10,16 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         // args
-        double k = 1;
+        int k = 1;
         String datasetPath = "";
 
         if (args.length == 2) {
-            k = Double.parseDouble(args[0]);
+            k = Integer.parseInt(args[0]);
             datasetPath = args[1];
         } else {
             try (Scanner sc = new Scanner(System.in)) {
                 System.out.println("> Enter k:");
-                k = sc.nextDouble();
+                k = sc.nextInt();
                 System.out.println("> Enter dataset path:");
                 datasetPath = sc.next();
             } catch (Exception ex) {
