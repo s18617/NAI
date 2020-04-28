@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class KMeans {
+public final class KMeans {
     public static ArrayList<ArrayList<Vector>> group(int k, List<Vector> vectors) {
         ArrayList<ArrayList<Vector>> groups = new ArrayList<>();
         for (int i = 0; i < k; i++) {
