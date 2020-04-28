@@ -82,7 +82,7 @@ public final class KMeans {
     private static void printGroups(ArrayList<ArrayList<Vector>> groups) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < groups.size(); i++) {
-            sb.append("Group_").append(i).append("_size=").append(groups.get(i).size()).append("; ");
+            sb.append("Group ").append(i).append("_size=").append(groups.get(i).size()).append("; ");
             double sum = 0;
             for (int j = 0; j < groups.get(i).size() - 1; j++) {
                 for (int l = j + 1; l < groups.get(i).size(); l++) {
