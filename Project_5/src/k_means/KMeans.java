@@ -27,7 +27,7 @@ public final class KMeans {
                 List<Vector> toRemove = new ArrayList<>();
 
                 for (Vector v : groups.get(i)) {
-                    int minDistanceIndex = 0; // - 'best' group classification
+                    int minDistanceIndex = 0; // - 'correct' group classification
                     double minDistance = centroids.get(0).getSquaredDistanceTo(v);
                     for (int j = 1; j < k; j++) {
                         double newDistance = centroids.get(j).getSquaredDistanceTo(v);
