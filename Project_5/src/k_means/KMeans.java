@@ -53,18 +53,7 @@ public class KMeans {
                 groups.get(i).removeAll(toRemove);
             }
             // console
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < groups.size(); i++) {
-                sb.append("Group_").append(i).append("_size=").append(groups.get(i).size()).append("; ");
-                double sum = 0;
-                for (int j = 0; j < groups.get(i).size() - 1; j++) {
-                    for (int l = j + 1; l < groups.get(i).size(); l++) {
-                        sum += groups.get(i).get(j).getSquaredDistanceTo(groups.get(i).get(l));
-                    }
-                }
-                sb.append("Sum=").append(Math.round(sum)).append(";\t\t");
-            }
-            System.out.println(sb);
+            printGroups(groups);
         } while (changed);
 
         return groups;
@@ -94,5 +83,20 @@ public class KMeans {
         }
 
         return centroids;
+    }
+
+    private static void printGroups(ArrayList<ArrayList<Vector>> groups) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < groups.size(); i++) {
+            sb.append("Group_").append(i).append("_size=").append(groups.get(i).size()).append("; ");
+            double sum = 0;
+            for (int j = 0; j < groups.get(i).size() - 1; j++) {
+                for (int l = j + 1; l < groups.get(i).size(); l++) {
+                    sum += groups.get(i).get(j).getSquaredDistanceTo(groups.get(i).get(l));
+                }
+            }
+            sb.append("Sum=").append(Math.round(sum)).append(";\t\t");
+        }
+        System.out.println(sb);
     }
 }
