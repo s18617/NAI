@@ -32,8 +32,7 @@ public class Main {
 
         List<Vector> vectors = loadFromCsv(datasetPath);
 
-        KMeans kMeans = new KMeans(vectors);
-        ArrayList<ArrayList<Vector>> groups = kMeans.group(k);
+        ArrayList<ArrayList<Vector>> groups = KMeans.group(k, vectors);
         for (int i = 0; i < groups.size(); i++) {
             System.out.println("===== GROUP " + i + " ===== SIZE=" + groups.get(i).size());
             for (Vector v : groups.get(i)) {
