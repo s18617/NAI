@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class Classifier {
-    private HashMap<String, Integer>[][] valueCounts; // [classificationIndex][columnIndex]
-    private int totalCounts[]; // [classificationIndex]
-    private int totalCount;
+    private final HashMap<String, Integer>[][] valueCounts; // [classificationIndex][columnIndex]
+    private final int[] totalCounts; // [classificationIndex]
+    private final int totalCount;
 
-    private ArrayList<String> classifications = new ArrayList<>();
+    private final ArrayList<String> classifications = new ArrayList<>();
 
     @SuppressWarnings("unchecked")
     public Classifier(List<Pair<String[], String>> observations) {
