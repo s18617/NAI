@@ -98,7 +98,7 @@ public class Classifier {
 
     public void test(List<String[]> trainingSet) {
         for (String[] observation : trainingSet) {
-            System.out.println(Arrays.toString(observation) + " = " + classify(observation));
+            System.out.println(classify(observation) + " = " + Arrays.toString(observation));
         }
     }
 
