@@ -4,17 +4,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        File[] files = new File[]{
-                new File("knapsacks/knapsack.txt"),
-                new File("knapsacks/PO1.txt"),
-                new File("knapsacks/PO2.txt"),
-                new File("knapsacks/PO3.txt"),
-                new File("knapsacks/PO4.txt"),
-                new File("knapsacks/PO5.txt"),
-                new File("knapsacks/PO6.txt"),
-                new File("knapsacks/PO7.txt"),
-                new File("knapsacks/PO8.txt")
-        };
+        // Most data is from https://people.sc.fsu.edu/~jburkardt/datasets/knapsack_01/knapsack_01.html
+        File folder = new File("knapsacks/");
+        File[] files = folder.listFiles();
 
         Knapsack[] knapsacks = new Knapsack[files.length];
 
