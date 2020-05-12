@@ -29,7 +29,7 @@ public class Classifier {
         }
 
 
-        // value counts
+        // value counts init
         valueCounts = new HashMap[classifications.size()][];
         for (int i = 0; i < valueCounts.length; i++) {
             valueCounts[i] = new HashMap[columns];
