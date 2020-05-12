@@ -87,7 +87,7 @@ public class Knapsack {
                 .append("; Items={");
 
         for (int i = 0; i < items.size(); i++) {
-            sb.append("(v=").append(items.get(i).getKey()).append(", w=").append(items.get(i).getValue()).append(")");
+            sb.append(i).append("=(v=").append(items.get(i).getKey()).append(", w=").append(items.get(i).getValue()).append(")");
             if (i < items.size() - 1) {
                 sb.append(", ");
             }

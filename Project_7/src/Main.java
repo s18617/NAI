@@ -27,7 +27,7 @@ public class Main {
 
         while (running) {
             byte[] selection = knapsacks[Integer.parseInt(input)].bruteForce();
-            System.out.println("> Best selection is " + Arrays.toString(selection));
+            System.out.println(ConsoleColors.GREEN + "> Best selection is " + Arrays.toString(selection) + ConsoleColors.RESET);
 
             System.out.println("\r\n> Enter index of chosen knapsack (or 'q' to quit)");
             printIndexedKnapsacks(knapsacks);
