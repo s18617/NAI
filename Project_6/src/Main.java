@@ -39,12 +39,12 @@ public class Main {
 
     private static void classificationLoop(Classifier classifier) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("> Enter values split with comas ('q' to quit)");
+        System.out.println("> Enter values divided with comas ('q' to quit)");
         String userInput = sc.nextLine();
         while (!userInput.equals("q")) {
             String[] split = userInput.split(",");
             System.out.println("< '" + classifier.classify(split) + "'");
-            System.out.println("> Enter values split with comas ('q' to quit)");
+            System.out.println("> Enter values divided with comas ('q' to quit)");
             userInput = sc.nextLine();
         }
     }
