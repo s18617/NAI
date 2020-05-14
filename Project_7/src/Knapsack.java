@@ -16,39 +16,6 @@ public class Knapsack {
         this.items = items;
     }
 
-    public byte[] bruteForce() {
-        byte[] bestSelection = null;
-        double bestValue = -1;
-
-        for (int i = 1; i < Math.pow(2, this.items.size()); i++) {
-            // generating selection
-            String[] bin = Integer.toBinaryString(i).split("");
-            byte[] selection = new byte[this.items.size()];
-            for (int j = bin.length - 1; j >= 0; j--) {
-                selection[j + (selection.length - bin.length)] = Byte.parseByte(bin[j]);
-            }
-
-            // checking selection
-            double value = 0;
-            double weight = 0;
-
-            for (int j = 0; j < selection.length; j++) {
-                weight += items.get(j).getValue() * selection[j];
-                value += items.get(j).getKey() * selection[j];
-            }
-
-            if (weight <= capacity) {
-                if (value > bestValue) {
-                    bestValue = value;
-                    bestSelection = selection;
-                    System.out.println("New best selection " + Arrays.toString(bestSelection));
-                }
-            }
-        }
-
-        return bestSelection;
-    }
-
     public static Knapsack loadKnapsack(File file) {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             ArrayList<Pair<Double, Double>> items = new ArrayList<>();
@@ -78,6 +45,48 @@ public class Knapsack {
 
         return null;
     }
+
+    public byte[] bruteForce() {
+        // timing
+        long start = System.currentTimeMillis();
+
+        byte[] bestSelection = null;
+        double bestValue = -1;
+
+        for (int i = 1; i < Math.pow(2, this.items.size()); i++) {
+            // generating selection
+            String[] bin = Integer.toBinaryString(i).split("");
+            byte[] selection = new byte[this.items.size()];
+            for (int j = bin.length - 1; j >= 0; j--) {
+                selection[j + (selection.length - bin.length)] = Byte.parseByte(bin[j]);
+            }
+
+            // checking selection
+            double value = 0;
+            double weight = 0;
+
+            for (int j = 0; j < selection.length; j++) {
+                weight += items.get(j).getValue() * selection[j];
+                value += items.get(j).getKey() * selection[j];
+            }
+
+            if (weight <= capacity) {
+                if (value > bestValue) {
+                    bestValue = value;
+                    bestSelection = selection;
+                    System.out.println("New best selection " + Arrays.toString(bestSelection));
+                }
+            }
+        }
+
+        // timing
+        long finish = System.currentTimeMillis();
+        long msElapsed = finish - start;
+        System.out.println("Checked all the possible selections in " + (msElapsed / 1000.0) + " s, or " + msElapsed + " ms");
+
+        return bestSelection;
+    }
+
 
     @Override
     public String toString() {
