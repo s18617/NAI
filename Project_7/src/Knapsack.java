@@ -70,12 +70,10 @@ public class Knapsack {
                 value += items.get(j).getKey() * selection[j];
             }
 
-            if (weight <= capacity) {
-                if (value > bestValue) {
-                    bestValue = value;
-                    bestSelection = selection;
-                    System.out.println("New best selection " + Arrays.toString(bestSelection));
-                }
+            if (weight <= capacity && value > bestValue) {
+                bestValue = value;
+                bestSelection = selection;
+                System.out.println("New best selection " + Arrays.toString(bestSelection));
             }
         }
 
