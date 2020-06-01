@@ -1,0 +1,12 @@
+current = initialRandomSolution()
+
+while(stopCondition)
+	candidate = randomNeighbour(current)
+	if f(candidate) isBetterThan f(current) then
+		current = candidate
+	else
+		current = candidate with probability
+			P(current, candidate, f, temperature)
+	lowerTemperature()
+
+return(bestSeenSolution)
