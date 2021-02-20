@@ -28,6 +28,7 @@ public class Main {
             trainSetPath = Paths.get(sc.nextLine());
             System.out.println("> Enter testing set path:");
             testSetPath = Paths.get(sc.nextLine());
+            sc.close();
         }
 
         // checking paths
