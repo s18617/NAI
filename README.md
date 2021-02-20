@@ -1,5 +1,7 @@
 # NAI
 
+Repozytorium zawierające wszystkie zrobione przeze mnie projekty z NAI/PJATK (Narzędzia Sztucznej Inteligencji).
+
 **Projekt programistyczny 1** - klasyfikator k-NN
 
 **Projekt programistyczny 2** - perceptron
